@@ -10,7 +10,7 @@ if (mysqli_connect_errno()) {
 
 // $host = 'http://localhost/secure-coding-karcis/';
 $host = 'http://' . $_SERVER['HTTP_HOST'] ."/";
-
+var_dump($host, $_SERVER);exit;
 error_reporting(E_ALL);
 
 
