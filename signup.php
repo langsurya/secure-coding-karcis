@@ -7,9 +7,14 @@ include "header.php";
             <h2 class="sr-only">Login Form</h2>
             <!-- if signup failed -->
             <?php
-                if(@$_GET['status'] == 'failed'){
-            ?>
-                <b style="display: block;position: relative;text-align:center; color: rgb(244,71,107)">Signup Failed</b>
+            $status = $_SESSION['signup_status'] ?? false;
+            $msg = $_SESSION['signup_message'] ?? '';
+
+            unset($_SESSION['signup_message']);
+            unset($_SESSION['signup_message']);
+
+            if ($status==false) { ?>
+                <b style="display: block;position: relative;text-align:center; color: rgb(244,71,107)"><?= $msg; ?></b>
             <?php } ?>
             <!--  -->
             <div class="illustration"><i class="fa fa-ticket"></i></div>

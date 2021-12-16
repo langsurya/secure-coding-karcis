@@ -8,9 +8,8 @@ if (mysqli_connect_errno()) {
   echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
 
-// $host = 'http://localhost/secure-coding-karcis/';
-$host = 'http://' . $_SERVER['HTTP_HOST'] ."/karcis-fix/";
-// var_dump($host, $_SERVER);exit;
+$host = "/karcis-fix/";
+
 error_reporting(E_ALL);
 
 

@@ -6,12 +6,17 @@ include "header.php";
         <form method="post" action="<?php echo $host;?>function/actSignin.php">
              <!-- if signup failed -->
              <?php
-                if(@$_GET['status'] == 'failed'){
-            ?>
-                <b style="display: block;position: relative;text-align:center; color: rgb(244,71,107)">Email dan Password tidak sesuai</b>
-            <?php } else if(@$_GET['status'] == 'success'){ ?>
-                <b style="display: block;position: relative;text-align:center; color: rgb(244,71,107)">Signup Success</b>
-            <?php } ?>
+
+             $status = $_SESSION['signin_status'] ?? false;
+             $msg = $_SESSION['signin_message'] ?? '';
+
+             unset($_SESSION['signin_status']);
+             unset($_SESSION['signin_message']);
+             if ($status) { ?>
+                <b style="display: block;position: relative;text-align:center; color: rgb(244,71,107)"><?=$msg?></b>
+            <?php } else { ?>
+                <b style="display: block;position: relative;text-align:center; color: rgb(244,71,107)"><?=$msg?></b>
+             <?php } ?>
             <!--  -->
 
             <h2 class="sr-only">Login Form</h2>
