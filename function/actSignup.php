@@ -7,7 +7,7 @@
 
     // insert to database
     $sql = "INSERT INTO users (email, password) VALUES ('$email', '$password')";
-var_dump($fullname);exit;
+
     if ($conn->query($sql) === TRUE) {
         $sql_profile = "INSERT INTO user_profile (id_user,fullname) VALUES ('$conn->insert_id','$fullname')";
         if($conn->query($sql_profile) === TRUE){
