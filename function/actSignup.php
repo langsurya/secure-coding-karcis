@@ -1,8 +1,8 @@
 <?php
     include "../conn.php";
 
-    $fullname = @$_POST['fullname'];
-    $email    = @$_POST['email'];
+    $fullname = htmlentities(@$_POST['fullname']);
+    $email    = htmlentities(@$_POST['email']);
     $password  = sha1(@$_POST['password']);
 
     // insert to database
