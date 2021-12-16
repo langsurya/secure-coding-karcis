@@ -1,9 +1,9 @@
 <?php
     include "../conn.php";
 
-    $fullname = htmlspecialchars(@$_POST['fullname']);
-    $email    = htmlspecialchars(@$_POST['email']);
-    $password  = sha1(@$_POST['password']);
+    $fullname = mysqli_real_escape_string(@$_POST['fullname']);
+    $email    = mysqli_real_escape_string(@$_POST['email']);
+    $password  = sha1(mysqli_real_escape_string(@$_POST['password']));
 
     // insert to database
     $sql = "INSERT INTO users (email, password) VALUES ('$email', '$password')";
