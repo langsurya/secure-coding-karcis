@@ -31,7 +31,7 @@ include "header.php";
                 <input class="form-control" type="password" name="password" placeholder="Password">
             </div>
             <div class="form-group">
-                <img class="form-control" src="function/captcha.php" alt="gambar" />
+                <img class="form-control" src="<?= $host ?>function/captcha.php" alt="gambar" />
             </div>
             <div class="form-group">
                 <input class="form-control" name="kode" value="" placeholder="kode captcha" maxlength="5"/>
