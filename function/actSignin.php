@@ -30,7 +30,7 @@
     }
     $sql = "SELECT * FROM users where email = '$email' and password = '$password'";
     $q = sprintf($sql, mysqli_real_escape_string($conn, $email));
-    $result = $conn->query($sql);
+    $result = $conn->query($q);
 
     if ($result->num_rows > 0) {
         // output data of each row
