@@ -1,5 +1,5 @@
 <?php
-    session_start();
+    @session_start();
     function acakCaptcha() {
         $kode = "abcdefghijklmnopqrstuwxyzABCDEFGHIJKLMNOPQRSTUWXYZ0123456789";
     
