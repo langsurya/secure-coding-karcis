@@ -31,6 +31,12 @@ include "header.php";
                 <input class="form-control" type="password" name="password" placeholder="Password">
             </div>
             <div class="form-group">
+                <img class="form-control" src="function/captcha.php" alt="gambar" />
+            </div>
+            <div class="form-group">
+                <input class="form-control" name="kode" value="" placeholder="kode captcha" maxlength="5"/>
+            </div>
+            <div class="form-group">
                 <button class="btn btn-primary btn-block" type="submit">Sign In</button>
             </div>
             <a class="forgot" href="forgotPassword.php">Forgot your email or password?</a></form>

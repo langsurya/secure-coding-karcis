@@ -6,6 +6,14 @@
     $email    = htmlentities(@$_POST['email']);
     $password  = sha1(htmlentities(@$_POST['password']));
 
+    // calidasi capcha
+    if ($_SESSION['code'] !== $_POST['kode']) {
+        $_SESSION['signup_status'] = false;
+        $_SESSION['signup_message'] = "Captcha yang anda masukkan salah!";
+        header('Location: '.$host.'signup.php' );
+        exit;
+    }
+
     if (filter_var($email, FILTER_VALIDATE_EMAIL) !== false) {
 
         $q_cek = "SELECT * FROM users WHERE email='$email'";

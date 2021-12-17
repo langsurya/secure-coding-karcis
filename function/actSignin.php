@@ -3,6 +3,14 @@
     include "../conn.php";
     @session_start();
 
+    // calidasi capcha
+    if ($_SESSION['code'] !== $_POST['kode']) {
+        $_SESSION['signin_status'] = false;
+        $_SESSION['signin_message'] = "Captcha yang anda masukkan salah!";
+        header('Location: '.$host.'signin.php' );
+        exit;
+    }
+
     // cek password apabila kosong
     if (empty(@$_POST['password']) || empty(@$_POST['email'])) {
         $_SESSION['signin_status'] = false;
