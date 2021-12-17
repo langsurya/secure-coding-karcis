@@ -33,7 +33,7 @@
                     $sql_profile = "INSERT INTO user_profile (id_user,fullname) VALUES ('$conn->insert_id','$fullname')";
                     if($conn->query($sql_profile) === TRUE){
                         
-                        $_SESSION['signin_message'] = true;
+                        $_SESSION['signin_status'] = true;
                         $_SESSION['signin_message'] = "Signup Success!";
                         header('location:'.$host.'signin.php');
                     } else {;

@@ -12,6 +12,7 @@ include "header.php";
 
              unset($_SESSION['signin_status']);
              unset($_SESSION['signin_message']);
+             
              if ($status) { ?>
                 <b style="display: block;position: relative;text-align:center; color: rgb(244,71,107)"><?=$msg?></b>
             <?php } else { ?>
@@ -20,10 +21,19 @@ include "header.php";
             <!--  -->
 
             <h2 class="sr-only">Login Form</h2>
-            <div class="illustration"><i class="fa fa-ticket"></i></div>
-            <div class="form-group"><input class="form-control" type="text" name="email" placeholder="Email"></div>
-            <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Password"></div>
-            <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Sign In</button></div><a class="forgot" href="forgotPassword.php">Forgot your email or password?</a></form>
+            <div class="illustration">
+                <i class="fa fa-ticket"></i>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" name="email" placeholder="Email">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="password" name="password" placeholder="Password">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary btn-block" type="submit">Sign In</button>
+            </div>
+            <a class="forgot" href="forgotPassword.php">Forgot your email or password?</a></form>
 </div>
 
 <?php
