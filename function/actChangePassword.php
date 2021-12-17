@@ -17,7 +17,7 @@ $conn->query($user);
 
 
 if($conn->query($user) === FALSE){
-    echo("Error description: " . mysqli_error($conn));
+    header('Location: '.$host.'changePassword.php?status=failed' );
 }
 
 header('Location: '.$host.'changePassword.php?status=success');

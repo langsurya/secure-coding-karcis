@@ -16,7 +16,7 @@
     if ($conn->query($q) === TRUE) {
         header('location:'.$host.'confirmation.php?hash='.$hash);
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        header('Location: '.$host.'forgotPassword.php?status=failed' );
     }
 
 ?>

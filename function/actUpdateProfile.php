@@ -47,8 +47,8 @@ if ($fileName) {
 
         header('Location: '.$host.'profile.php?status=success');
     } else {
-        var_dump($_FILES['userfile']['error']);
-        echo "File gagal diupload.";
+        // var_dump($_FILES['userfile']['error']);
+        header('Location: '.$host.'profile.php?status=failed' );
     }
 } else {
     // update data
@@ -59,7 +59,7 @@ if ($fileName) {
     $conn->query($userProfile);
 
     if($conn->query($user) === FALSE && $conn->query($userProfile) === FALSE){
-        echo("Error description: " . mysqli_error($conn));
+        header('Location: '.$host.'profile.php?status=failed' );
     }
 
     header('Location: '.$host.'profile.php?status=success');
