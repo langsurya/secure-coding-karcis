@@ -1,9 +1,9 @@
 <?php
 include "header.php";
 
-$hash = @$_GET['hash'];
+$hash = mysqli_real_escape_string($conn, htmlentities(@$_GET['hash']));
 
-$reset_password = "SELECT link FROM forgot_password WHERE hash = '$hash'";
+$reset_password = sprintf("SELECT link FROM forgot_password WHERE hash = '$hash'");
 
 $reset_password_result = $conn->query($reset_password);
 

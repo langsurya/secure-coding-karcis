@@ -1,12 +1,12 @@
 <?php
 include "header.php";
 
-$id_booking = @$_GET['IDBOOKING'];
+$id_booking = mysqli_real_escape_string($conn, htmlentities(@$_GET['IDBOOKING']));
 
 
     
 // get data user
-$ticket = "SELECT tickets.*, booking.id as id_booking, booking.price as booking_price, booking.id_user, user_profile.fullname FROM booking LEFT JOIN user_profile ON user_profile.id_user = booking.id_user LEFT JOIN tickets ON tickets.id = booking.id_ticket  WHERE booking.id = $id_booking";
+$ticket = sprintf("SELECT tickets.*, booking.id as id_booking, booking.price as booking_price, booking.id_user, user_profile.fullname FROM booking LEFT JOIN user_profile ON user_profile.id_user = booking.id_user LEFT JOIN tickets ON tickets.id = booking.id_ticket  WHERE booking.id = $id_booking");
 
 $result = $conn->query($ticket);
 

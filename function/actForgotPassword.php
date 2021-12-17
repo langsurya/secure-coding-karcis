@@ -1,17 +1,17 @@
 <?php
     include "../conn.php";
 
-    if (empty(@$_POST['email'])) {
+    // validasi email
+    if (empty(@$_POST['email']) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
         header('location:'.$host.'forgotPassword.php?status=failed');exit;
     }
 
-    $email = htmlentities(@$_POST['email']);
+    $email = mysqli_real_escape_string($conn, htmlentities(@$_POST['email']));
     $hash = sha1($email);
-    $link = $host."resetPassword.php?hash=".$hash;
+    $link = mysqli_real_escape_string($conn, $host."resetPassword.php?hash=".$hash);
 
     
-    $sql = "INSERT INTO forgot_password (email, hash, link) VALUES ('$email', '$hash', '$link')";
-    $q = sprintf($sql, mysqli_real_escape_string($conn, $email));
+    $sql = sprintf("INSERT INTO forgot_password (email, hash, link) VALUES ('$email', '$hash', '$link')");
 
     if ($conn->query($q) === TRUE) {
         header('location:'.$host.'confirmation.php?hash='.$hash);

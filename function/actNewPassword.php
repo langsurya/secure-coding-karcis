@@ -1,11 +1,11 @@
 <?php
 include "../conn.php";
 
-$token = @$_POST['token'];
+$token = mysqli_real_escape_string($conn, htmlentities(@$_POST['token']));
 $password = sha1(@$_POST['password']);
-$email = @$_POST['email'];
+$email = mysqli_real_escape_string($conn, htmlentities(@$_POST['email']));
 
-$sql = "SELECT * FROM forgot_password where email = '$email' and hash = '$token' and flag = 0";
+$sql = sprintf("SELECT * FROM forgot_password where email = '$email' and hash = '$token' and flag = 0");
 $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {

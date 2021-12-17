@@ -1,10 +1,10 @@
 <?php
     include "../conn.php";
 
-    $email = @$_POST['email'];
+    $email =mysqli_real_escape_string($conn, htmlentities(@$_POST['email']));
     $password = sha1(@$_POST['password']);
 
-    $sql = "SELECT * FROM admin where email = '$email' and password = '$password'";
+    $sql = sprintf("SELECT * FROM admin where email = '$email' and password = '$password'");
     $result = $conn->query($sql);
 
 
